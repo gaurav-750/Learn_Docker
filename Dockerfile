@@ -9,7 +9,7 @@ WORKDIR /app
 # COPY <src> <dest>
 COPY . .
 
-# other dependeccies -> npm install (at built time)
+# other dependeccies -> npm install (at build time)
 RUN npm install
 # this command tells docker to run the command on the image itself while the image is being built
 # so that all the dependencies will be installed
