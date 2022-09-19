@@ -5,14 +5,17 @@ FROM node:17-alpine
 WORKDIR /app
 # this is the main working directory now => all paths are now relative to this
 
-#add source code layer -> app.js and all (All the source files)
-# COPY <src> <dest>
-COPY . .
+COPY package.json .
 
 # other dependeccies -> npm install (at build time)
 RUN npm install
 # this command tells docker to run the command on the image itself while the image is being built
 # so that all the dependencies will be installed
+
+#add source code layer -> app.js and all (All the source files)
+COPY . .
+# COPY <src> <dest>
+
 
 # which port the server shld expose
 EXPOSE 4000
